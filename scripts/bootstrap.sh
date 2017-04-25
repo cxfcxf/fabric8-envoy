@@ -10,6 +10,8 @@ yum -y remove  git
 rpm -ivh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
 rpm -ivh https://centos7.iuscommunity.org/ius-release.rpm
 yum -y update 
+# install libsecret since git from ius has this requirement now
+yum install -y libsecret libsecret-devel
 # disable base repo for installation as it has older git version
 yum -y --disablerepo=base,updates --enablerepo=ius install git
 
